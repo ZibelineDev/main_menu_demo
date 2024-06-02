@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://p4p4l5ai4cbj"]
+[gd_scene load_steps=3 format=3 uid="uid://p4p4l5ai4cbj"]
 
 [ext_resource type="Script" path="res://scenes/user_interface/main_menu/main_menu.gd" id="1_fhgay"]
+[ext_resource type="PackedScene" uid="uid://dtoh35k0j1uy0" path="res://scenes/user_interface/main_menu/components/profile_card/profile_card.tscn" id="2_gu71a"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -10,6 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fhgay")
+scene_profile_card = ExtResource("2_gu71a")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -51,7 +53,8 @@ theme_override_constants/margin_top = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/MarginContainer"]
+[node name="ProfilesContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/separation = 64
 
