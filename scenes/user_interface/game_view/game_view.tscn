@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://dh6c76xsidy3k"]
+[gd_scene load_steps=2 format=3 uid="uid://dh6c76xsidy3k"]
+
+[ext_resource type="Script" path="res://scenes/user_interface/game_view/game_view.gd" id="1_7xwsm"]
 
 [node name="GameView" type="Control"]
 layout_mode = 3
@@ -7,3 +9,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7xwsm")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 64
+
+[node name="Header" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+theme_type_variation = &"HeaderLarge"
+text = "Profile Name"
+horizontal_alignment = 1
+vertical_alignment = 1

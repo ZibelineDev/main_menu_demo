@@ -2,7 +2,7 @@ class_name SaveSystem
 
 const DIR_PATH : String = "user://saves"
 
-static func create_new_profile() -> void:
+static func create_new_profile() -> Data:
 	var save_files : PackedStringArray = get_save_files()
 	var counter : int = 1
 	
@@ -28,6 +28,7 @@ static func create_new_profile() -> void:
 	)
 	
 	ResourceSaver.save(new_data, save_path)
+	return new_data
 
 
 static func open_save_dir() -> DirAccess:
@@ -52,3 +53,24 @@ static func get_save_files() -> PackedStringArray:
 			filtered_files.append(file)
 	
 	return filtered_files
+
+
+static func get_profiles_data() -> Array[Data]:
+	var save_files : PackedStringArray = get_save_files()
+	
+	var profiles_data : Array[Data] = []
+	
+	for save_file : String in save_files:
+		var new_data : Data = Data.new()
+		new_data = load("%s/%s" %[DIR_PATH, save_file]) as Data
+		
+		profiles_data.append(new_data)
+	
+	return profiles_data
+
+
+static func get_profile_data(save_path : String) -> Data:
+	var data : Data = Data.new()
+	data = load("%s/%s" %[DIR_PATH, save_path]) as Data
+	
+	return data

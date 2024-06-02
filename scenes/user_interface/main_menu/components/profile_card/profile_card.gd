@@ -11,7 +11,7 @@ func _ready() -> void:
 	var text : String
 	
 	if data:
-		text = "Profile 1"
+		text = data.profile_name
 	else:
 		text = "New Profile"
 	
